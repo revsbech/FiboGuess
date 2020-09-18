@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Text, View, Button, KeyboardAvoidingView, Platform} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, TabActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import StreakComponent from "../tal/StreakComponent"
 import NumberComponent from "../tal/TalComponent"
@@ -9,10 +9,18 @@ import { ScreenStackHeaderBackButtonImage } from 'react-native-screens';
 import StartScreen from "./App"
 import { onChange } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CorrectScreen from './CorrectScreen';
 //const utill = require('util');
  
 
-
+function HomeScreen() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home!</Text>
+      </View>
+    );
+  }
 
 
 export default class GameScreen extends React.Component {
@@ -89,9 +97,10 @@ export default class GameScreen extends React.Component {
                 </View>
                 <View style={{flex: 2, justifyContent: 'center', alignItems: 'center', justifyContent: 'space-around'}}>
                     <TextInput
-                     style={{height: 50, backgroundColor:'#778899', fontSize: 20, color:'#fff5ee', width: 50}}
-                     placeholder="WRITE YOUR GUESS HERE"
+                     style={{height: 75, fontSize: 50, color:'#fff5ee', width: 250, textAlign: 'center'}}
+                     placeholder="GUESS"
                      onChangeText={this.handleTextChange.bind(this)}
+                     keyboardType='numeric'
                     />
                     <Button 
                       onPress={this.handleClickOnButton.bind(this)}
@@ -110,4 +119,3 @@ export default class GameScreen extends React.Component {
         );    
     }
 }
-

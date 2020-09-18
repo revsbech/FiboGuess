@@ -7,7 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import gameScreen from "./Screens/GameScreen";
 import CorrectScreen from './Screens/CorrectScreen';
 import WrongScreen from './Screens/WrongScreen'
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AboutUsScreen from './Screens/AboutUs';
 
 function HomeScreen({ navigation }) {
   return (
@@ -25,12 +26,23 @@ function HomeScreen({ navigation }) {
 }
 const Stack = createStackNavigator();
 
+function AboutUsTab() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen}/>
+      <Tab.Screen name="Aboutus" component={AboutUsScreen} />
+    </Tab.Navigator>
+  );
+}
+
+const Tab = createBottomTabNavigator();
 
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="About Us" component={AboutUsTab}/>
         <Stack.Screen name="Start" component={HomeScreen} />
         <Stack.Screen name="GameScreen" component={gameScreen} />
         <Stack.Screen name="CorrectScreen" component={CorrectScreen} />
