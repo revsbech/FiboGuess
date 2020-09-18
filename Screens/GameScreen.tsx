@@ -87,7 +87,7 @@ export default class GameScreen extends React.Component {
                 </View>
                 <View style={{flex: 2, justifyContent: 'center', alignItems: 'center', justifyContent: 'space-around'}}>
                     <TextInput
-                     style={{height: 50, backgroundColor:'#778899', fontSize: 20, color:'#fff5ee'}}
+                     style={{height: 50, backgroundColor:'#778899', fontSize: 20, color:'#fff5ee', width: 50}}
                      placeholder="WRITE YOUR GUESS HERE"
                      onChangeText={this.handleTextChange.bind(this)}
                     />
