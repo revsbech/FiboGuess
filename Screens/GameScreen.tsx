@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Text, View, Button, Alert} from 'react-native';
+import {Text, View, Button, KeyboardAvoidingView, Platform} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import StreakComponent from "../tal/StreakComponent"
@@ -67,7 +67,9 @@ export default class GameScreen extends React.Component {
         var numberTwo = this.F(this.state.currentNumber);
                 
         return (
-            <View style={{flex: 1, backgroundColor: '#add8e6'}}>
+            <KeyboardAvoidingView 
+                style={{flex: 1, backgroundColor: '#add8e6'}}
+                behavior={Platform.OS == "ios" ? "padding" : "height"}>
                 <View style={{flex: 1, alignItems: 'center'}}>
                     <Text style={{paddingTop: 25, color: '#778899', fontSize: 30}}>
                         GUESS NOW!
@@ -104,7 +106,7 @@ export default class GameScreen extends React.Component {
                         {this.state.currentStreak}
                     </StreakComponent>
                 </View>
-            </View>
+            </KeyboardAvoidingView>
         );    
     }
 }
